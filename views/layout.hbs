@@ -1,10 +1,44 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>{{title}}</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <meta charset="utf-8">
+    <title>Game Together</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   </head>
   <body>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Game Together</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Home</a></li>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Place holder<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Place holder</a></li>
+              <li><a href="#">Place holder</a></li>
+              <li><a href="#">Place holder</a></li>
+            </ul>
+          </li>
+          <li><a href="#">Place holder</a></li>
+          <li><a href="#">Place holder</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          {{#if userLoggedin }}
+          <li><a href="/profile"><span class="glyphicon glyphicon-user"></span> My Profile</a></li>
+          <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
+          <!-- stuck here, trying to get a boolean where it will show log out when youre logged in and vice versa, only shows "log in" -->
+          {{else}}
+          <li><a href="/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+          <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+          {{/if}}
+
+
+        </ul>
+      </div>
+    </nav>
     {{{body}}}
   </body>
 </html>
