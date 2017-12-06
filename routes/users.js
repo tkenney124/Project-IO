@@ -1,6 +1,10 @@
 var express = require('express');
 var router = express.Router();
+<<<<<<< HEAD
 var userLoggedin = false;
+=======
+var userLoggedin = 0;
+>>>>>>> 33934d58683e82f54f223a5e9bd9e93ba16e54ee
 
 var env = require('dotenv').config();
 const Client = require('pg').Client;
@@ -20,16 +24,23 @@ router.get('/', function(req, res, next) {
 
 router.get('/logout', function(req, res){
     req.logout(); //passport provide it
+<<<<<<< HEAD
     userLoggedin = false;
     console.log(userLoggedin);
+=======
+>>>>>>> 33934d58683e82f54f223a5e9bd9e93ba16e54ee
     res.redirect('/'); // Successful. redirect to localhost:3000/users
 });
 
 function loggedIn(req, res, next) {
 
   if (req.user) {
+<<<<<<< HEAD
     userLoggedin = true;
     console.log(userLoggedin);
+=======
+    userLoggedin == true;
+>>>>>>> 33934d58683e82f54f223a5e9bd9e93ba16e54ee
     next(); // req.user exists, go to the next function (right after loggedIn)
   } else {
     res.redirect('/login'); // user doesn't exists redirect to localhost:3000/users/login
@@ -37,16 +48,23 @@ function loggedIn(req, res, next) {
 }
 
 router.get('/profile',loggedIn, function(req, res){
+<<<<<<< HEAD
       userLoggedin = true;
       console.log(userLoggedin);
+=======
+>>>>>>> 33934d58683e82f54f223a5e9bd9e93ba16e54ee
       // req.user: passport middleware adds "user" object to HTTP req object
       res.render('profile', { person: req.user });
 });
 
 function notLoggedIn(req, res, next) {
   if (!req.user) {
+<<<<<<< HEAD
     userLoggedin = false;
     console.log(userLoggedin);
+=======
+    userLoggedin == false;
+>>>>>>> 33934d58683e82f54f223a5e9bd9e93ba16e54ee
     next();
   } else {
     res.redirect('/profile');
@@ -65,8 +83,11 @@ router.post('/login',
   // authentication locally (not using passport-google, passport-twitter, passport-github...)
   passport.authenticate('local', { failureRedirect: 'login', failureFlash:true }),
   function(req, res,next) {
+<<<<<<< HEAD
     userLoggedin = true;
     console.log(userLoggedin);
+=======
+>>>>>>> 33934d58683e82f54f223a5e9bd9e93ba16e54ee
     res.redirect('/profile'); // Successful. redirect to localhost:3000/users/profile
 });
 

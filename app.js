@@ -33,7 +33,11 @@ passport.use(new LocalStrategy({
     passwordField: 'password'
   },
   function(username, password, done) {
+<<<<<<< HEAD
     client.query('SELECT * FROM IO_users WHERE username = $1', [username], function(err, result) {
+=======
+    client.query('SELECT * FROM users WHERE username = $1', [username], function(err, result) {
+>>>>>>> 33934d58683e82f54f223a5e9bd9e93ba16e54ee
       if (err) {
         console.log("SQL error");
         //next(err);
@@ -85,8 +89,11 @@ app.set('view engine', 'hbs');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+<<<<<<< HEAD
 app.use(express.static(path.resolve('./public')));
 app.use('/public', express.static(path.resolve('./public')));
+=======
+>>>>>>> 33934d58683e82f54f223a5e9bd9e93ba16e54ee
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
