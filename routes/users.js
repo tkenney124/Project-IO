@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var userLoggedin = 0;
+var userLoggedin = false;
 
 var env = require('dotenv').config();
 const Client = require('pg').Client;
@@ -20,13 +20,16 @@ router.get('/', function(req, res, next) {
 
 router.get('/logout', function(req, res){
     req.logout(); //passport provide it
+    userLoggedin = false;
+    console.log(userLoggedin);
     res.redirect('/'); // Successful. redirect to localhost:3000/users
 });
 
 function loggedIn(req, res, next) {
 
   if (req.user) {
-    userLoggedin == true;
+    userLoggedin = true;
+    console.log(userLoggedin);
     next(); // req.user exists, go to the next function (right after loggedIn)
   } else {
     res.redirect('/login'); // user doesn't exists redirect to localhost:3000/users/login
@@ -34,13 +37,16 @@ function loggedIn(req, res, next) {
 }
 
 router.get('/profile',loggedIn, function(req, res){
+      userLoggedin = true;
+      console.log(userLoggedin);
       // req.user: passport middleware adds "user" object to HTTP req object
       res.render('profile', { person: req.user });
 });
 
 function notLoggedIn(req, res, next) {
   if (!req.user) {
-    userLoggedin == false;
+    userLoggedin = false;
+    console.log(userLoggedin);
     next();
   } else {
     res.redirect('/profile');
@@ -59,6 +65,8 @@ router.post('/login',
   // authentication locally (not using passport-google, passport-twitter, passport-github...)
   passport.authenticate('local', { failureRedirect: 'login', failureFlash:true }),
   function(req, res,next) {
+    userLoggedin = true;
+    console.log(userLoggedin);
     res.redirect('/profile'); // Successful. redirect to localhost:3000/users/profile
 });
 

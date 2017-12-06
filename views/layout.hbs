@@ -2,43 +2,56 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Game Together</title>
+    <title>IsoOffice</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
   </head>
   <body>
-    <nav class="navbar navbar-inverse">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="#">Game Together</a>
+          <a class="navbar-brand" href="#">IsoOffice</a>
         </div>
         <ul class="nav navbar-nav">
-          <li class="active"><a href="#">Home</a></li>
-          <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Place holder<span class="caret"></span></a>
+          <li class="active"><a href="/">Home</a></li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbardrop">Exercises
+              <span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><a href="#">Place holder</a></li>
-              <li><a href="#">Place holder</a></li>
-              <li><a href="#">Place holder</a></li>
+              <li><a class="dropdown-item" href="/cardio">Cardio</a></li>
+              <li><a class="dropdown-item" href="/legs">Legs</a></li>
+              <li><a class="dropdown-item" href="/shoulders_arms">Shoulder and Arms</a></li>
+              <li><a class="dropdown-item" href="/chest_back_neck">Chest, Back, and Neck</a></li>
+              <li><a class="dropdown-item" href="/core">Core</a></li>
             </ul>
           </li>
-          <li><a href="#">Place holder</a></li>
-          <li><a href="#">Place holder</a></li>
+
+          <li><a href="/about">About Isometrics</a></li>
+          <li><a href="/contact">Contact</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          {{#if userLoggedin }}
-          <li><a href="/profile"><span class="glyphicon glyphicon-user"></span> My Profile</a></li>
-          <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
-          <!-- stuck here, trying to get a boolean where it will show log out when youre logged in and vice versa, only shows "log in" -->
-          {{else}}
           <li><a href="/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
           <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-          {{/if}}
+        </ul>
+      </div>
+    </nav>
+      <!--
+          <li><a href="/profile"><span class="glyphicon glyphicon-user"></span> My Profile</a></li>
+          <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
+           stuck here, trying to get a boolean where it will show log out when youre logged in and vice versa, only shows "log in"
+
+          <li><a href="/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+          <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+
 
 
         </ul>
       </div>
-    </nav>
+    </nav> -->
     {{{body}}}
   </body>
 </html>
